@@ -1,5 +1,3 @@
-package com.university.lab01;
-
 import org.junit.jupiter.api.Test;
 
 import java.time.Year;

@@ -1,5 +1,3 @@
-package com.university.lab01;
-
 import java.time.Year;
 
 /**

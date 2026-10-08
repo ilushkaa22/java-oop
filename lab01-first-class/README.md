@@ -47,11 +47,10 @@ lab01-first-class/
 │   └── prompts/
 │       └── README.md
 ├── src/
-│   ├── main/java/com/university/lab01/
-│   │   ├── Book.java
-│   │   └── Main.java
-│   └── test/java/com/university/lab01/
-│       └── BookTest.java
+│   ├── Book.java
+│   └── Main.java
+├── test/
+│   └── BookTest.java
 ├── pom.xml
 └── README.md
 ```
@@ -65,8 +64,6 @@ lab01-first-class/
 Класс хранит сведения о книге. Конструктор вызывает setter-методы, поэтому правила проверки данных определены в одном месте. Метод `getDescription()` формирует требуемую строку, а `toString()` использует тот же формат.
 
 ```java
-package com.university.lab01;
-
 import java.time.Year;
 
 /**
@@ -150,8 +147,6 @@ public class Book {
 Точка входа создаёт три объекта и выводит их описания с порядковыми номерами.
 
 ```java
-package com.university.lab01;
-
 public final class Main {
     private Main() {
     }
@@ -198,7 +193,7 @@ void yearMustBeInAllowedRange() {
 }
 ```
 
-Полный листинг расположен в `src/test/java/com/university/lab01/BookTest.java`.
+Полный листинг расположен в `test/BookTest.java`.
 
 ---
 
