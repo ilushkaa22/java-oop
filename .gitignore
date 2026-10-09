@@ -1,5 +1,8 @@
 # Local instructions for AI coding agents
 /AGENTS.md
 
+# IntelliJ IDEA project settings
+/.idea/
+
 # Maven build output
 **/target/
