@@ -1,0 +1,20 @@
+=== Pair ===
+first = 20
+second = 10
+min = 10
+max = 20
+Строки: min = Algorithms, max = Java
+
+=== swap ===
+До: [10, 20, 30]
+После: [30, 20, 10]
+Строки после обмена: [SQL, Java]
+
+=== Repository<String> ===
+ID: 1, 2
+Все элементы: [Java, SQL]
+Поиск ID 1: Java
+Удаление ID 2: true
+Повторное удаление: false
+Поиск удалённого: null
+Осталось: [Java]
