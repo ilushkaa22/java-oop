@@ -1,0 +1,69 @@
+=== Сохранение, поиск и удаление ===
+2026-10-30 18:45:23 INFO  Repository - Объект успешно сохранён: id=1, Евгений Онегин — Александр Пушкин (1833)
+Найдена: Евгений Онегин — Александр Пушкин (1833)
+2026-10-30 18:45:23 INFO  Repository - Объект успешно удалён: id=1, Евгений Онегин — Александр Пушкин (1833)
+2026-10-30 18:45:23 WARN  Repository - Попытка получить книгу с id 999
+BookNotFoundException: Книга с id 999 не найдена
+finally: демонстрация поиска завершена
+2026-10-30 18:45:23 WARN  Repository - Попытка удалить книгу с id 999
+Удаление: Книга с id 999 не найдена
+
+=== Проверка данных ===
+2026-10-30 18:45:23 ERROR Book - Ошибка валидации: year должен быть от 1 до 2026: 0
+InvalidBookDataException: year должен быть от 1 до 2026: 0
+Год после отклонённого изменения: 2000
+2026-10-30 18:45:23 ERROR Book - Ошибка валидации: title не может быть null или пустым
+Создание: title не может быть null или пустым
+
+=== Загрузка книг из файла ===
+2026-10-30 18:45:23 INFO  Repository - Объект успешно сохранён: id=2, Война и мир — Лев Толстой (1869)
+2026-10-30 18:45:23 INFO  Repository - Объект успешно сохранён: id=3, Мастер и Маргарита — Михаил Булгаков (1967)
+2026-10-30 18:45:23 ERROR Book - Ошибка валидации: title не может быть null или пустым
+2026-10-30 18:45:23 ERROR Main - Отклонена строка 3 файла data/books.txt: title не может быть null или пустым
+exceptions.InvalidBookDataException: title не может быть null или пустым
+	at Book.validateText(Book.java:74)
+	at Book.setTitle(Book.java:35)
+	at Book.<init>(Book.java:21)
+	at Main.parseBook(Main.java:108)
+	at Main.loadBooks(Main.java:86)
+	at Main.main(Main.java:34)
+2026-10-30 18:45:23 ERROR Main - Отклонена строка 4 файла data/books.txt: Год должен быть целым числом: не число
+exceptions.InvalidBookDataException: Год должен быть целым числом: не число
+	at Main.parseBook(Main.java:111)
+	at Main.loadBooks(Main.java:86)
+	at Main.main(Main.java:34)
+Caused by: java.lang.NumberFormatException: For input string: "не число"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:565)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at Main.parseBook(Main.java:108)
+	... 2 common frames omitted
+2026-10-30 18:45:23 ERROR Main - Отклонена строка 5 файла data/books.txt: Ожидались три поля: title;author;year
+exceptions.InvalidBookDataException: Ожидались три поля: title;author;year
+	at Main.parseBook(Main.java:105)
+	at Main.loadBooks(Main.java:86)
+	at Main.main(Main.java:34)
+2026-10-30 18:45:23 INFO  Repository - Объект успешно сохранён: id=4, Преступление и наказание — Фёдор Достоевский (1866)
+2026-10-30 18:45:23 INFO  Main - Загрузка завершена: файл=data/books.txt, загружено=3, отклонено=3
+
+=== Обработка отсутствующего файла ===
+2026-10-30 18:45:23 ERROR Main - Файл книг не найден: data/missing-books.txt
+java.nio.file.NoSuchFileException: data/missing-books.txt
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:213)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:244)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:357)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:399)
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:371)
+	at java.base/java.nio.file.Files.newInputStream(Files.java:154)
+	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2645)
+	at Main.loadBooks(Main.java:81)
+	at Main.main(Main.java:36)
+2026-10-30 18:45:23 INFO  Main - Загрузка завершена: файл=data/missing-books.txt, загружено=0, отклонено=0
+
+=== Запись и чтение учебного лога ===
+Прочитано из logs/file-demo.log: INFO: учебная запись в файл
+Книг в репозитории: 3
+2026-10-30 18:45:23 INFO  Main - Демонстрация завершена
